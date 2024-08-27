@@ -9,15 +9,18 @@ public class Curso extends Conteudo{
         return XP_PADRAO * cargaHoraria;
     }
 
-    public Curso() {
+    public Curso(String titulo, String descricao ,int cargaHoraria) {
+        super(titulo, descricao);
+        this.setCargaHoraria(cargaHoraria);
     }
-
 
     public int getCargaHoraria() {
         return cargaHoraria;
     }
 
     public void setCargaHoraria(int cargaHoraria) {
+        if (cargaHoraria <= 0)
+            throw new IllegalArgumentException("carga horária não pode ser menor que uma hora");
         this.cargaHoraria = cargaHoraria;
     }
 

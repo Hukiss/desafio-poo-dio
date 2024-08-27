@@ -7,6 +7,11 @@ public abstract class Conteudo {
     private String titulo;
     private String descricao;
 
+    public Conteudo(String titulo, String descricao) {
+        this.setTitulo(titulo);
+        this.descricao = descricao;
+    }
+
     public abstract double calcularXp();
 
     public String getTitulo() {
@@ -14,6 +19,8 @@ public abstract class Conteudo {
     }
 
     public void setTitulo(String titulo) {
+        if (titulo == null)
+            throw new IllegalArgumentException("titutos não podem ser nulos");
         this.titulo = titulo;
     }
 

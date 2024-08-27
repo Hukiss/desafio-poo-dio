@@ -12,6 +12,10 @@ public class Dev {
         bootcamp.getDevsInscritos().add(this);
     }
 
+    public Dev(String nome) {
+        this.nome = nome;
+    }
+
     public void progredir() {
         Optional<Conteudo> conteudo = this.conteudosInscritos.stream().findFirst();
         if(conteudo.isPresent()) {
@@ -43,6 +47,8 @@ public class Dev {
     }
 
     public void setNome(String nome) {
+        if (nome == null)
+            throw new IllegalArgumentException("nome não podem ser nulo");
         this.nome = nome;
     }
 
